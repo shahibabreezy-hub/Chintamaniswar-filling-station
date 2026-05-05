@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Chintamaniswar Filling Station — 50 Years | HPCL</title>
   <meta name="description" content="50 Years of Chintamaniswar Filling Station — HPCL petrol pump on NH60, Pahala, Bhubaneswar. Celebrating five decades of service since 1976.">
+  <link rel="icon" type="image/png" href="images/favicon.png">
   <style>
     /* ===== RESET & BASE ===== */
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -263,6 +264,38 @@
       margin-top: 1rem; background: var(--hp-blue); color: #fff;
       border: none; padding: 0.6rem 1.5rem; border-radius: 50px; cursor: pointer; font-weight: 600;
     }
+
+    /* ===== SCROLL TO TOP ===== */
+    .scroll-top {
+      position: fixed; bottom: 2rem; right: 2rem; z-index: 999;
+      width: 48px; height: 48px; border-radius: 50%;
+      background: var(--hp-orange); color: #fff; border: none; cursor: pointer;
+      font-size: 1.2rem; box-shadow: 0 4px 15px rgba(245, 130, 32, 0.4);
+      opacity: 0; transform: translateY(20px);
+      transition: opacity 0.3s, transform 0.3s;
+      pointer-events: none;
+    }
+    .scroll-top.visible { opacity: 1; transform: translateY(0); pointer-events: auto; }
+    .scroll-top:hover { transform: translateY(-3px); box-shadow: 0 8px 25px rgba(245, 130, 32, 0.5); }
+
+    /* ===== HERO PARTICLES ===== */
+    .hero-particles { position: absolute; inset: 0; overflow: hidden; z-index: 0; }
+    .hero-particle {
+      position: absolute; border-radius: 50%;
+      animation: float-up linear infinite;
+      opacity: 0;
+    }
+    @keyframes float-up {
+      0% { transform: translateY(100vh) scale(0); opacity: 0; }
+      10% { opacity: 0.6; }
+      90% { opacity: 0.6; }
+      100% { transform: translateY(-10vh) scale(1); opacity: 0; }
+    }
+    @keyframes pulse-gold {
+      0%, 100% { box-shadow: 0 0 0 0 rgba(212, 175, 55, 0.4); }
+      50% { box-shadow: 0 0 0 15px rgba(212, 175, 55, 0); }
+    }
+    .hero .anniversary-badge { animation: pulse-gold 3s ease-in-out infinite; }
   </style>
 </head>
 <body>
@@ -292,6 +325,7 @@
 
   <!-- ===== HERO ===== -->
   <section class="hero" id="hero">
+    <div class="hero-particles" id="heroParticles"></div>
     <div class="container">
       <div class="anniversary-badge">✦ 50th Anniversary ✦</div>
       <h1 style="font-family: 'Noto Sans Oriya', 'Segoe UI', sans-serif;">
@@ -433,7 +467,7 @@
           <h3>Chintamaniswar Filling Station</h3>
           <div class="detail">
             <span class="d-icon">📍</span>
-            <span>Ground Floor, NH 5, Pahala<br>Bhubaneswar, Odisha 751032, India</span>
+            <span>Ground Floor, NH60, Pahala<br>Bhubaneswar, Odisha 751032, India</span>
           </div>
           <div class="detail">
             <span class="d-icon">📞</span>
@@ -471,14 +505,17 @@
         <span class="gold-text">✦ Chintamaniswar Filling Station ✦</span><br>
         A proud partner of <strong>Hindustan Petroleum Corporation Ltd.</strong>
       </p>
-      <p>NH 5, Pahala, Bhubaneswar, Odisha 751032</p>
+      <p>NH60, Pahala, Bhubaneswar, Odisha 751032</p>
       <p style="margin-top: 1rem; font-size: 0.75rem;">
         1976 – 2026 · 50 Years of Service · ପଚାଶ ବର୍ଷର ସେବା
       </p>
     </div>
-  </footer>
+    </footer>
 
-  <!-- ===== QR MODAL ===== -->
+    <!-- Scroll to Top -->
+    <button class="scroll-top" id="scrollTop" aria-label="Scroll to top">↑</button>
+
+    <!-- ===== QR MODAL ===== -->
   <div class="qr-modal" id="qrModal">
     <div class="qr-modal-content">
       <h3>Scan For Directions</h3>
@@ -533,6 +570,37 @@
         document.getElementById('nav').classList.remove('open');
       });
     });
+
+    // ===== SCROLL TO TOP =====
+    const scrollTopBtn = document.getElementById('scrollTop');
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 400) {
+        scrollTopBtn.classList.add('visible');
+      } else {
+        scrollTopBtn.classList.remove('visible');
+      }
+    });
+    scrollTopBtn.addEventListener('click', () => {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+
+    // ===== HERO PARTICLES =====
+    (function() {
+      const container = document.getElementById('heroParticles');
+      const colors = ['rgba(212,175,55,0.6)', 'rgba(240,215,140,0.5)', 'rgba(245,130,32,0.4)', 'rgba(255,255,255,0.3)'];
+      for (let i = 0; i < 18; i++) {
+        const dot = document.createElement('div');
+        dot.classList.add('hero-particle');
+        const size = 2 + Math.random() * 4;
+        dot.style.width = size + 'px';
+        dot.style.height = size + 'px';
+        dot.style.left = Math.random() * 100 + '%';
+        dot.style.background = colors[Math.floor(Math.random() * colors.length)];
+        dot.style.animationDuration = 8 + Math.random() * 14 + 's';
+        dot.style.animationDelay = Math.random() * 12 + 's';
+        container.appendChild(dot);
+      }
+    })();
 
     // ===== QR MODAL =====
     function openQR() { document.getElementById('qrModal').classList.add('open'); }
