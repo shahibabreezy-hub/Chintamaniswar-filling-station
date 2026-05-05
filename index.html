@@ -1,0 +1,556 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Chintamaniswar Filling Station — 50 Years | HPCL</title>
+  <meta name="description" content="50 Years of Chintamaniswar Filling Station — HPCL petrol pump on NH5, Pahala, Bhubaneswar. Celebrating five decades of service since 1976.">
+  <style>
+    /* ===== RESET & BASE ===== */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; font-size: 16px; }
+    body {
+      font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+      color: #1a1a2e;
+      background: #fafafa;
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    /* ===== COLORS ===== */
+    :root {
+      --hp-blue: #003B71;
+      --hp-orange: #F58220;
+      --hp-red: #DA291C;
+      --gold: #D4AF37;
+      --gold-light: #F0D78C;
+      --dark: #1a1a2e;
+      --light: #fafafa;
+      --gray: #6b7280;
+      --card-bg: #ffffff;
+    }
+
+    /* ===== TYPOGRAPHY ===== */
+    h1, h2, h3 { font-weight: 700; line-height: 1.2; }
+    h1 { font-size: clamp(2rem, 6vw, 3.5rem); }
+    h2 { font-size: clamp(1.5rem, 4vw, 2.5rem); }
+    h3 { font-size: clamp(1.1rem, 3vw, 1.5rem); }
+
+    /* ===== NAVIGATION ===== */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
+      background: rgba(0, 59, 113, 0.95);
+      backdrop-filter: blur(10px);
+      padding: 0.75rem 1rem;
+    }
+    nav .nav-inner {
+      max-width: 1200px; margin: 0 auto;
+      display: flex; justify-content: space-between; align-items: center;
+    }
+    nav .logo-area { display: flex; align-items: center; gap: 0.75rem; }
+    nav .logo-area .hp-badge {
+      background: var(--hp-orange); color: #fff;
+      font-weight: 800; font-size: 0.7rem; padding: 0.2rem 0.5rem;
+      border-radius: 4px; letter-spacing: 0.5px;
+    }
+    nav .logo-text { color: #fff; font-weight: 700; font-size: 1.1rem; }
+    nav .nav-links { display: flex; gap: 1.25rem; list-style: none; }
+    nav .nav-links a {
+      color: rgba(255,255,255,0.85); text-decoration: none;
+      font-size: 0.9rem; font-weight: 500; transition: color 0.2s;
+    }
+    nav .nav-links a:hover { color: var(--gold-light); }
+
+    /* Mobile nav */
+    .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; background: none; border: none; padding: 4px; }
+    .hamburger span { display: block; width: 24px; height: 2px; background: #fff; border-radius: 2px; transition: 0.3s; }
+
+    /* ===== SECTIONS ===== */
+    section { padding: 4rem 1rem; }
+    .container { max-width: 1100px; margin: 0 auto; }
+
+    /* ===== HERO ===== */
+    .hero {
+      min-height: 100vh; display: flex; align-items: center; justify-content: center;
+      text-align: center;
+      background: linear-gradient(135deg, var(--hp-blue) 0%, #001f3d 100%);
+      color: #fff; position: relative; overflow: hidden;
+      padding-top: 5rem;
+    }
+    .hero::before {
+      content: ''; position: absolute; inset: 0;
+      background: radial-gradient(circle at 40% 60%, rgba(212, 175, 55, 0.15) 0%, transparent 60%);
+    }
+    .hero .container { position: relative; z-index: 1; }
+    .hero .anniversary-badge {
+      display: inline-block;
+      background: var(--gold);
+      color: var(--dark);
+      font-weight: 800; font-size: 0.85rem; letter-spacing: 2px;
+      padding: 0.4rem 1.25rem; border-radius: 50px;
+      margin-bottom: 1.5rem; text-transform: uppercase;
+    }
+    .hero h1 { margin-bottom: 1rem; }
+    .hero .subtitle {
+      font-size: clamp(1rem, 2.5vw, 1.3rem);
+      color: rgba(255,255,255,0.85); max-width: 600px; margin: 0 auto 2rem;
+    }
+    .hero .hpcl-tag {
+      display: inline-flex; align-items: center; gap: 0.5rem;
+      background: rgba(255,255,255,0.1); padding: 0.5rem 1.25rem;
+      border-radius: 50px; font-size: 0.85rem; margin-bottom: 2rem;
+    }
+    .hero .hpcl-tag .dot { width: 8px; height: 8px; border-radius: 50%; background: var(--hp-orange); }
+
+    /* Countdown */
+    .countdown { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; margin-bottom: 2rem; }
+    .countdown .cd-box {
+      background: rgba(255,255,255,0.1); backdrop-filter: blur(10px);
+      border: 1px solid rgba(255,255,255,0.15);
+      border-radius: 12px; padding: 1rem 1.25rem; min-width: 80px;
+    }
+    .countdown .cd-num { font-size: clamp(1.8rem, 4vw, 2.8rem); font-weight: 800; line-height: 1; }
+    .countdown .cd-label { font-size: 0.7rem; text-transform: uppercase; letter-spacing: 1px; color: rgba(255,255,255,0.6); margin-top: 0.3rem; }
+
+    .hero .btn {
+      display: inline-block; background: var(--hp-orange); color: #fff;
+      padding: 0.85rem 2rem; border-radius: 50px; text-decoration: none;
+      font-weight: 700; font-size: 1rem; transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .hero .btn:hover { transform: translateY(-2px); box-shadow: 0 8px 25px rgba(245, 130, 32, 0.4); }
+
+    /* ===== SECTION HEADERS ===== */
+    .section-header { text-align: center; margin-bottom: 3rem; }
+    .section-header .tag {
+      color: var(--hp-orange); font-weight: 700; font-size: 0.8rem;
+      text-transform: uppercase; letter-spacing: 2px; margin-bottom: 0.5rem;
+    }
+    .section-header .underline {
+      width: 60px; height: 3px; background: var(--gold); margin: 1rem auto 0; border-radius: 2px;
+    }
+
+    /* ===== STORY / ABOUT ===== */
+    .story { background: #fff; }
+    .story-grid {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: center;
+    }
+    .story-img {
+      width: 100%; aspect-ratio: 4/3; background: linear-gradient(135deg, #e0e7ff, #fef3c7);
+      border-radius: 16px; display: flex; align-items: center; justify-content: center;
+      font-size: 3rem; color: var(--hp-blue); position: relative; overflow: hidden;
+    }
+    .story-img .placeholder-text {
+      text-align: center; color: var(--gray); font-size: 0.9rem; padding: 1rem;
+    }
+    .story-text .highlight { color: var(--hp-orange); font-weight: 600; }
+    .story-text blockquote {
+      border-left: 4px solid var(--gold); padding: 0.5rem 0 0.5rem 1.25rem;
+      margin: 1.5rem 0; font-style: italic; color: var(--gray);
+    }
+
+    /* ===== SERVICES ===== */
+    .services { background: var(--light); }
+    .services-grid {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      gap: 1.25rem;
+    }
+    .service-card {
+      background: var(--card-bg); border-radius: 12px; padding: 1.5rem 1rem;
+      text-align: center; box-shadow: 0 1px 3px rgba(0,0,0,0.06);
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .service-card:hover { transform: translateY(-4px); box-shadow: 0 8px 25px rgba(0,0,0,0.1); }
+    .service-card .icon { font-size: 2rem; margin-bottom: 0.75rem; }
+    .service-card h4 { font-size: 0.9rem; margin-bottom: 0.25rem; }
+    .service-card p { font-size: 0.75rem; color: var(--gray); }
+
+    /* ===== GALLERY ===== */
+    .gallery { background: #fff; }
+    .gallery-grid {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1rem;
+    }
+    .gallery-item {
+      aspect-ratio: 4/3; border-radius: 12px; overflow: hidden;
+      background: linear-gradient(135deg, #e0e7ff, #fef3c7);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 2rem; color: var(--gray); transition: transform 0.3s;
+    }
+    .gallery-item:hover { transform: scale(1.03); }
+    .gallery-item img { width: 100%; height: 100%; object-fit: cover; }
+
+    /* ===== FILM SECTION ===== */
+    .film { background: var(--dark); color: #fff; text-align: center; }
+    .film .section-header .tag { color: var(--gold-light); }
+    .film .section-header .underline { background: var(--hp-orange); }
+    .film-placeholder {
+      max-width: 800px; margin: 2rem auto 0;
+      aspect-ratio: 16/9; background: rgba(255,255,255,0.05);
+      border: 2px dashed rgba(255,255,255,0.15); border-radius: 12px;
+      display: flex; align-items: center; justify-content: center; flex-direction: column; gap: 1rem;
+    }
+    .film-placeholder .play-icon {
+      width: 64px; height: 64px; border-radius: 50%;
+      background: var(--hp-orange); display: flex; align-items: center; justify-content: center;
+      font-size: 1.5rem;
+    }
+
+    /* ===== LOCATION ===== */
+    .location { background: linear-gradient(135deg, #f8f9fa, #fff); }
+    .location-grid {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; align-items: start;
+    }
+    .location-info h3 { margin-bottom: 1rem; }
+    .location-info .detail { display: flex; gap: 0.75rem; margin-bottom: 1rem; color: var(--gray); }
+    .location-info .detail .d-icon { flex-shrink: 0; font-size: 1.2rem; }
+    .map-placeholder, .qr-placeholder {
+      aspect-ratio: 1/1; background: #e5e7eb; border-radius: 12px;
+      display: flex; align-items: center; justify-content: center; flex-direction: column; gap: 0.5rem;
+      color: var(--gray); text-align: center; padding: 1rem; font-size: 0.85rem;
+    }
+    .qr-placeholder { max-width: 200px; margin: 0 auto; }
+
+    /* ===== FOOTER ===== */
+    footer {
+      background: var(--hp-blue); color: rgba(255,255,255,0.7);
+      text-align: center; padding: 2.5rem 1rem; font-size: 0.85rem;
+    }
+    footer .footer-text { margin-bottom: 0.5rem; }
+    footer .gold-text { color: var(--gold-light); }
+
+    /* ===== SCROLL BUTTON ===== */
+    .scroll-down {
+      position: absolute; bottom: 2rem; left: 50%; transform: translateX(-50%);
+      color: rgba(255,255,255,0.5); font-size: 1.5rem; animation: bounce 2s infinite;
+    }
+    @keyframes bounce {
+      0%, 20%, 50%, 80%, 100% { transform: translateX(-50%) translateY(0); }
+      40% { transform: translateX(-50%) translateY(-10px); }
+      60% { transform: translateX(-50%) translateY(-5px); }
+    }
+
+    /* ===== RESPONSIVE ===== */
+    @media (max-width: 768px) {
+      nav .nav-links { display: none; }
+      .hamburger { display: flex; }
+      .story-grid, .location-grid { grid-template-columns: 1fr; }
+      .countdown .cd-box { min-width: 65px; padding: 0.75rem 0.75rem; }
+      section { padding: 3rem 1rem; }
+    }
+
+    /* Mobile nav open */
+    nav.open .nav-links {
+      display: flex; flex-direction: column; position: absolute;
+      top: 100%; left: 0; right: 0;
+      background: var(--hp-blue); padding: 1rem;
+      gap: 0.75rem; border-top: 1px solid rgba(255,255,255,0.1);
+    }
+    nav.open .hamburger span:nth-child(1) { transform: rotate(45deg) translate(5px, 5px); }
+    nav.open .hamburger span:nth-child(2) { opacity: 0; }
+    nav.open .hamburger span:nth-child(3) { transform: rotate(-45deg) translate(5px, -5px); }
+
+    /* Animation classes */
+    .fade-in { opacity: 0; transform: translateY(30px); transition: opacity 0.6s, transform 0.6s; }
+    .fade-in.visible { opacity: 1; transform: translateY(0); }
+
+    /* QR overlay */
+    .qr-modal { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.8); z-index: 2000; align-items: center; justify-content: center; }
+    .qr-modal.open { display: flex; }
+    .qr-modal-content { background: #fff; border-radius: 16px; padding: 2rem; text-align: center; max-width: 320px; width: 90%; }
+    .qr-modal-content h3 { margin-bottom: 1rem; }
+    .qr-modal-content .close-btn {
+      margin-top: 1rem; background: var(--hp-blue); color: #fff;
+      border: none; padding: 0.6rem 1.5rem; border-radius: 50px; cursor: pointer; font-weight: 600;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ===== NAVIGATION ===== -->
+  <nav id="nav">
+    <div class="nav-inner">
+      <div class="logo-area">
+        <span style="font-size: 1.5rem;">⛽</span>
+        <div>
+          <div class="logo-text">Chintamaniswar Filling Station</div>
+          <div class="hp-badge">HPCL</div>
+        </div>
+      </div>
+      <button class="hamburger" id="hamburger" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#story">Our Story</a></li>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#gallery">Gallery</a></li>
+        <li><a href="#film">The Film</a></li>
+        <li><a href="#location">Find Us</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- ===== HERO ===== -->
+  <section class="hero" id="hero">
+    <div class="container">
+      <div class="anniversary-badge">✦ 50th Anniversary ✦</div>
+      <h1 style="font-family: 'Noto Sans Oriya', 'Segoe UI', sans-serif;">
+        ଚିନ୍ତାମଣୀଶ୍ୱର<br>
+        <span style="font-size: 0.6em; font-weight: 500;">Chintamaniswar Filling Station</span>
+      </h1>
+      <p class="subtitle">
+        50 years of fuel, friendship &amp; chai on NH5, Pahala.<br>
+        A proud HPCL partner since 1976.
+      </p>
+      <div class="hpcl-tag">
+        <span class="dot"></span> HPCL Retail Outlet — Bhubaneswar, Odisha
+      </div>
+
+      <!-- Countdown -->
+      <div class="countdown" id="countdown">
+        <div class="cd-box"><div class="cd-num" id="cd-days">00</div><div class="cd-label">Days</div></div>
+        <div class="cd-box"><div class="cd-num" id="cd-hours">00</div><div class="cd-label">Hours</div></div>
+        <div class="cd-box"><div class="cd-num" id="cd-mins">00</div><div class="cd-label">Minutes</div></div>
+        <div class="cd-box"><div class="cd-num" id="cd-secs">00</div><div class="cd-label">Seconds</div></div>
+      </div>
+
+      <a href="#story" class="btn">Explore 50 Years →</a>
+    </div>
+    <div class="scroll-down">↓</div>
+  </section>
+
+  <!-- ===== STORY ===== -->
+  <section class="story fade-in" id="story">
+    <div class="container">
+      <div class="section-header">
+        <div class="tag">Our Story</div>
+        <h2>1976 — The Journey Begins</h2>
+        <div class="underline"></div>
+      </div>
+      <div class="story-grid">
+        <div class="story-img">
+          <img src="images/vintage_india.jpg" alt="Chintamaniswar Filling Station — the early years" style="width:100%;height:100%;object-fit:cover;border-radius:16px;">
+        </div>
+        <div class="story-text">
+          <p>
+            <strong>One pump. One chair. One big dream.</strong> That's how it started in 1976, 
+            on the dusty stretch of NH5 in Pahala, Bhubaneswar. No app. No GPS. Just a man 
+            who believed that a petrol pump could be more — a place where people stop, breathe, 
+            and leave with a smile.
+          </p>
+          <blockquote>
+            "The first chai was free. The petrol wasn't. The business model was… creative."<br>
+            <small>— The Founder</small>
+          </blockquote>
+          <p>
+            Five decades later, <span class="highlight">Chintamaniswar Filling Station</span> 
+            is not just a fuel stop. It's a landmark. A place where generations of travellers, 
+            truckers, families, and neighbours have found more than petrol — they've found 
+            <span class="highlight">a second home on the highway</span>.
+          </p>
+          <p>
+            Through monsoons, heatwaves, cyclones, and economic shifts — the pump has never closed. 
+            The smile has never changed. The chai is still legendary.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== SERVICES ===== -->
+  <section class="services fade-in" id="services">
+    <div class="container">
+      <div class="section-header">
+        <div class="tag">What We Offer</div>
+        <h2>More Than Just Fuel</h2>
+        <div class="underline"></div>
+      </div>
+      <div class="services-grid">
+        <div class="service-card"><div class="icon">⛽</div><h4>Petrol</h4><p>Regular &amp; premium grades</p></div>
+        <div class="service-card"><div class="icon">🛢️</div><h4>Diesel</h4><p>High-quality for all vehicles</p></div>
+        <div class="service-card"><div class="icon">🔥</div><h4>CNG</h4><p>Clean, green fuel</p></div>
+        <div class="service-card"><div class="icon">⚡</div><h4>EV Charging</h4><p>Fast charging station</p></div>
+        <div class="service-card"><div class="icon">🏎️</div><h4>poWer95</h4><p>Premium 95-octane petrol</p></div>
+        <div class="service-card"><div class="icon">💨</div><h4>TurboJet</h4><p>Advanced diesel</p></div>
+        <div class="service-card"><div class="icon">🛞</div><h4>Free Air</h4><p>Tyre inflation</p></div>
+        <div class="service-card"><div class="icon">💧</div><h4>RO Water</h4><p>Free drinking water</p></div>
+        <div class="service-card"><div class="icon">🛠️</div><h4>Lubricants</h4><p>HP genuine oils</p></div>
+        <div class="service-card"><div class="icon">🚽</div><h4>Toilet</h4><p>Clean facility, free</p></div>
+        <div class="service-card"><div class="icon">🎈</div><h4>Nitrogen</h4><p>Better tyre life</p></div>
+        <div class="service-card"><div class="icon">💳</div><h4>Digital Pay</h4><p>Card, UPI, HP Pay</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== GALLERY ===== -->
+  <section class="gallery fade-in" id="gallery">
+    <div class="container">
+      <div class="section-header">
+        <div class="tag">Gallery</div>
+        <h2>Moments From 50 Years</h2>
+        <div class="underline"></div>
+      </div>
+      <div class="gallery-grid">
+        <div class="gallery-item"><img src="images/team.jpg" alt="Our Team" loading="lazy"></div>
+        <div class="gallery-item"><img src="images/business_hands.jpg" alt="Generations of Service" loading="lazy"></div>
+        <div class="gallery-item"><img src="images/gas_station_1.jpg" alt="The Station" loading="lazy"></div>
+        <div class="gallery-item"><img src="images/gas_4.jpg" alt="Serving Since 1976" loading="lazy"></div>
+        <div class="gallery-item"><img src="images/office_team.jpg" alt="Our Community" loading="lazy"></div>
+        <div class="gallery-item"><img src="images/gas_station_2.jpg" alt="50 Years Strong" loading="lazy"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== FILM ===== -->
+  <section class="film fade-in" id="film">
+    <div class="container">
+      <div class="section-header">
+        <div class="tag">Jubilee Film</div>
+        <h2>"Yahaan Rukna Mana Hai...<br>Phir Bhi Sab Rukte Hain"</h2>
+        <div class="underline"></div>
+      </div>
+      <p style="max-width: 600px; margin: 0 auto; color: rgba(255,255,255,0.7);">
+        A short documentary celebrating 50 years of the station where nobody 
+        was supposed to stop — but everyone did.
+      </p>
+      <div class="film-placeholder">
+        <div class="play-icon">▶</div>
+        <p style="color: rgba(255,255,255,0.5);">Jubilee film premieres on May 17, 2026</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== LOCATION ===== -->
+  <section class="location fade-in" id="location">
+    <div class="container">
+      <div class="section-header">
+        <div class="tag">Find Us</div>
+        <h2>Come Celebrate With Us</h2>
+        <div class="underline"></div>
+      </div>
+      <div class="location-grid">
+        <div class="location-info">
+          <h3>Chintamaniswar Filling Station</h3>
+          <div class="detail">
+            <span class="d-icon">📍</span>
+            <span>Ground Floor, NH 5, Pahala<br>Bhubaneswar, Odisha 751032, India</span>
+          </div>
+          <div class="detail">
+            <span class="d-icon">📞</span>
+            <span>+91 79788 16603</span>
+          </div>
+          <div class="detail">
+            <span class="d-icon">🕐</span>
+            <span>Open 24 Hours — 365 Days a Year</span>
+          </div>
+          <div class="detail">
+            <span class="d-icon">🚗</span>
+            <span>Free parking on site</span>
+          </div>
+          <div style="margin-top: 1.5rem; display: flex; gap: 0.75rem; flex-wrap: wrap;">
+            <a href="https://maps.google.com/?q=Hindustan+Petroleum+Corporation+Limited+Pahala+Bhubaneswar+Odisha+751032"
+               target="_blank" rel="noopener" class="btn" style="background: var(--hp-blue); display: inline-flex; align-items: center; gap: 0.5rem;">
+              🗺️ Open in Maps
+            </a>
+            <button onclick="openQR()" class="btn" style="background: var(--dark); border: none; cursor: pointer; display: inline-flex; align-items: center; gap: 0.5rem;">
+              📱 Scan QR
+            </button>
+          </div>
+        </div>
+        <div class="map-placeholder">
+          🗺️<br>Interactive Map<br><small>Embed coming — see Google Maps link above</small>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== FOOTER ===== -->
+  <footer>
+    <div class="container">
+      <p class="footer-text">
+        <span class="gold-text">✦ Chintamaniswar Filling Station ✦</span><br>
+        A proud partner of <strong>Hindustan Petroleum Corporation Ltd.</strong>
+      </p>
+      <p>NH 5, Pahala, Bhubaneswar, Odisha 751032</p>
+      <p style="margin-top: 1rem; font-size: 0.75rem;">
+        1976 – 2026 · 50 Years of Service · ପଚାଶ ବର୍ଷର ସେବା
+      </p>
+    </div>
+  </footer>
+
+  <!-- ===== QR MODAL ===== -->
+  <div class="qr-modal" id="qrModal">
+    <div class="qr-modal-content">
+      <h3>Scan For Directions</h3>
+      <div class="qr-placeholder" style="margin: 1rem auto;">
+        📱<br>QR Code<br><small>Coming soon — links to Google Maps</small>
+      </div>
+      <p style="font-size: 0.85rem; color: var(--gray); margin: 0.75rem 0;">
+        Point your camera here to open navigation
+      </p>
+      <button class="close-btn" onclick="closeQR()">Close</button>
+    </div>
+  </div>
+
+  <script>
+    // ===== COUNTDOWN =====
+    const targetDate = new Date('2026-05-17T00:00:00+05:30').getTime(); // IST
+
+    function updateCountdown() {
+      const now = new Date().getTime();
+      const diff = targetDate - now;
+
+      if (diff <= 0) {
+        document.getElementById('cd-days').textContent = '🎉';
+        document.getElementById('cd-hours').textContent = '🎉';
+        document.getElementById('cd-mins').textContent = '🎉';
+        document.getElementById('cd-secs').textContent = '🎉';
+        return;
+      }
+
+      const d = Math.floor(diff / (1000 * 60 * 60 * 24));
+      const h = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      const m = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+      const s = Math.floor((diff % (1000 * 60)) / 1000);
+
+      document.getElementById('cd-days').textContent = String(d).padStart(2, '0');
+      document.getElementById('cd-hours').textContent = String(h).padStart(2, '0');
+      document.getElementById('cd-mins').textContent = String(m).padStart(2, '0');
+      document.getElementById('cd-secs').textContent = String(s).padStart(2, '0');
+    }
+
+    updateCountdown();
+    setInterval(updateCountdown, 1000);
+
+    // ===== MOBILE NAV =====
+    document.getElementById('hamburger').addEventListener('click', () => {
+      document.getElementById('nav').classList.toggle('open');
+    });
+
+    // Close nav on link click
+    document.querySelectorAll('#navLinks a').forEach(link => {
+      link.addEventListener('click', () => {
+        document.getElementById('nav').classList.remove('open');
+      });
+    });
+
+    // ===== QR MODAL =====
+    function openQR() { document.getElementById('qrModal').classList.add('open'); }
+    function closeQR() { document.getElementById('qrModal').classList.remove('open'); }
+    document.getElementById('qrModal').addEventListener('click', (e) => {
+      if (e.target === e.currentTarget) closeQR();
+    });
+
+    // ===== SCROLL ANIMATIONS =====
+    const fadeEls = document.querySelectorAll('.fade-in');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, { threshold: 0.15 });
+
+    fadeEls.forEach(el => observer.observe(el));
+  </script>
+</body>
+</html>
