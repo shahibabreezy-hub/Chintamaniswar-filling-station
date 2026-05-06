@@ -159,19 +159,21 @@
 
     /* ===== SERVICES ===== */
     .services { background: var(--light); }
+    .services-subtitle { text-align: center; color: var(--gray); font-size: 1.05rem; margin-top: -2rem; margin-bottom: 2.5rem; }
     .services-grid {
-      display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-      gap: 1.25rem;
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.5rem;
     }
     .service-card {
-      background: var(--card-bg); border-radius: 12px; padding: 1.5rem 1rem;
-      text-align: center; box-shadow: 0 1px 3px rgba(0,0,0,0.06);
+      background: var(--card-bg); border-radius: 14px; padding: 2rem 1.5rem;
+      text-align: left; box-shadow: 0 1px 3px rgba(0,0,0,0.06);
       transition: transform 0.2s, box-shadow 0.2s;
+      border-top: 3px solid transparent;
     }
-    .service-card:hover { transform: translateY(-4px); box-shadow: 0 8px 25px rgba(0,0,0,0.1); }
-    .service-card .icon { font-size: 2rem; margin-bottom: 0.75rem; }
-    .service-card h4 { font-size: 0.9rem; margin-bottom: 0.25rem; }
-    .service-card p { font-size: 0.75rem; color: var(--gray); }
+    .service-card:hover { transform: translateY(-4px); box-shadow: 0 8px 25px rgba(0,0,0,0.1); border-top-color: var(--hp-orange); }
+    .service-card .icon { font-size: 2.2rem; margin-bottom: 0.75rem; display: block; }
+    .service-card h4 { font-size: 1.1rem; margin-bottom: 0.5rem; color: var(--hp-blue); }
+    .service-card p { font-size: 0.88rem; color: var(--gray); line-height: 1.5; }
 
     /* ===== GALLERY ===== */
     .gallery { background: #fff; }
@@ -420,22 +422,17 @@
     <div class="container">
       <div class="section-header">
         <div class="tag">What We Offer</div>
-        <h2>More Than Just Fuel</h2>
+        <h2>Precision Services</h2>
         <div class="underline"></div>
       </div>
+      <p class="services-subtitle">Comprehensive care for every mile ahead. Engineered for speed and efficiency.</p>
       <div class="services-grid">
-        <div class="service-card"><div class="icon">⛽</div><h4>Petrol</h4><p>Regular &amp; premium grades</p></div>
-        <div class="service-card"><div class="icon">🛢️</div><h4>Diesel</h4><p>High-quality for all vehicles</p></div>
-        <div class="service-card"><div class="icon">🔥</div><h4>CNG</h4><p>Clean, green fuel</p></div>
-        <div class="service-card"><div class="icon">⚡</div><h4>EV Charging</h4><p>Fast charging station</p></div>
-        <div class="service-card"><div class="icon">🏎️</div><h4>poWer95</h4><p>Premium 95-octane petrol</p></div>
-        <div class="service-card"><div class="icon">💨</div><h4>TurboJet</h4><p>Advanced diesel</p></div>
-        <div class="service-card"><div class="icon">🛞</div><h4>Free Air</h4><p>Tyre inflation</p></div>
-        <div class="service-card"><div class="icon">💧</div><h4>RO Water</h4><p>Free drinking water</p></div>
-        <div class="service-card"><div class="icon">🛠️</div><h4>Lubricants</h4><p>HP genuine oils</p></div>
-        <div class="service-card"><div class="icon">🚽</div><h4>Toilet</h4><p>Clean facility, free</p></div>
-        <div class="service-card"><div class="icon">🎈</div><h4>Nitrogen</h4><p>Better tyre life</p></div>
-        <div class="service-card"><div class="icon">💳</div><h4>Digital Pay</h4><p>Card, UPI, HP Pay</p></div>
+        <div class="service-card"><span class="icon">⛽</span><h4>Best Quality Fuel</h4><p>Pure, adulteration-free HPCL petrol &amp; diesel at the most competitive prices in Bhubaneswar. Calibrated dispensers guarantee accurate quantity every time.</p></div>
+        <div class="service-card"><span class="icon">🎈</span><h4>Nitrogen Air Filling</h4><p>Pure nitrogen tyre inflation for better pressure retention, cooler running temperatures, and longer tyre life. Available for all vehicle types.</p></div>
+        <div class="service-card"><span class="icon">📋</span><h4>PUC Certificate</h4><p>Quick PUC certificate issuance for all vehicle types: two-wheelers, cars, and commercial vehicles at government-approved rates.</p></div>
+        <div class="service-card"><span class="icon">🛢️</span><h4>Best Prices on Lubricants</h4><p>Genuine HP Lube engine oils at competitive prices in the Twin City area. Wide range of grades available — from everyday multigrade to full-synthetic options.</p></div>
+        <div class="service-card"><span class="icon">🔧</span><h4>Free Oil Change</h4><p>Get a free engine oil change service with select HP Lube purchases. Expert technicians ensure your engine stays protected and efficient.</p></div>
+        <div class="service-card"><span class="icon">💳</span><h4>Digital Payments</h4><p>Cashless fueling via Credit/Debit cards, HP Pay, and all UPI apps. Fast, secure, and rewarding. Earn Happy Coins on every fill.</p></div>
       </div>
     </div>
   </section>
