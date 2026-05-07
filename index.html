@@ -327,7 +327,8 @@
       .lightbox {
         border: none; padding: 0; background: transparent;
         max-width: 95vw; max-height: 95vh;
-        overflow: hidden;
+        overflow: visible;
+        display: flex; align-items: center; justify-content: center;
       }
       .lightbox::backdrop {
         background: rgba(0,0,0,0.9);
@@ -336,7 +337,7 @@
       .lightbox img {
         max-width: 90vw; max-height: 85vh;
         display: block; border-radius: 8px;
-        margin: 0 auto;
+        object-fit: contain;
       }
       .gallery-item { cursor: pointer; }
     }
