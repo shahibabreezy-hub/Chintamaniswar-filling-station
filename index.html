@@ -322,6 +322,27 @@
       font-family: 'Cinzel Decorative', serif;
       font-size: 1.1rem;
     }
+    /* ===== LIGHTBOX ===== */
+    .lightbox {
+      border: none; padding: 0; background: transparent;
+      max-width: 95vw; max-height: 95vh;
+      overflow: hidden;
+    }
+    .lightbox::backdrop {
+      background: rgba(0,0,0,0.9);
+      cursor: pointer;
+    }
+    .lightbox img {
+      max-width: 90vw; max-height: 85vh;
+      display: block; border-radius: 8px;
+      margin: 0 auto;
+    }
+    .lightbox .close-lightbox {
+      position: absolute; top: -2rem; right: 0;
+      color: #fff; background: none; border: none;
+      font-size: 2rem; cursor: pointer; line-height: 1;
+    }
+    .gallery-item { cursor: pointer; }
   </style>
 </head>
 <body>
@@ -520,6 +541,11 @@
     </div>
   </section>
 
+  <!-- ===== LIGHTBOX DIALOG ===== -->
+  <dialog class="lightbox" id="lightbox" onclick="this.close()">
+    <img src="" alt="" id="lightboxImg">
+  </dialog>
+
   <!-- ===== FOOTER ===== -->
   <footer>
     <div class="container">
@@ -646,6 +672,21 @@
     document.getElementById('qrModal').addEventListener('click', (e) => {
       if (e.target === e.currentTarget) closeQR();
     });
+
+    // ===== LIGHTBOX =====
+    const lightbox = document.getElementById('lightbox');
+    const lightboxImg = document.getElementById('lightboxImg');
+
+    document.querySelectorAll('.gallery-item img').forEach(img => {
+      img.addEventListener('click', (e) => {
+        e.stopPropagation();
+        lightboxImg.src = img.src;
+        lightboxImg.alt = img.alt;
+        lightbox.showModal();
+      });
+    });
+
+    lightboxImg.addEventListener('click', (e) => e.stopPropagation());
 
     // ===== SCROLL ANIMATIONS =====
     const fadeEls = document.querySelectorAll('.fade-in');
